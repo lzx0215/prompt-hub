@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "meeting-summary-assistant",
+    "title": "会议纪要整理助手",
+    "summary": "把零散会议记录整理为清晰的结论、行动项和风险提醒。",
+    "category": "office",
+    "tags": ["summary", "work"],
+    "content": "你是一名专业会议纪要助手。请根据我提供的会议记录，整理出会议主题、关键结论、行动项、负责人、截止时间和风险提醒。输出使用 Markdown 表格和分节标题。",
+    "exampleInput": "项目例会讨论了首页改版、图片上传限制和下周测试安排。",
+    "exampleOutput": "## 关键结论\n- 首页改版进入视觉确认阶段。\n\n## 行动项\n| 事项 | 负责人 | 截止时间 |\n| --- | --- | --- |\n| 补充测试用例 | QA | 下周三 |",
+    "structureRole": "专业会议纪要助手",
+    "structureTask": "整理会议主题、关键结论、行动项和风险提醒",
+    "structureContext": "用户提供的是原始会议记录，可能包含口语化表达和顺序混乱的信息",
+    "structureConstraints": "不要编造负责人和截止时间；缺失信息用“待确认”标注",
+    "structureOutputFormat": "使用 Markdown 分节标题和表格",
+    "weakPrompt": "帮我总结会议。",
+    "improvedPrompt": "你是一名专业会议纪要助手。请根据我提供的会议记录，整理出会议主题、关键结论、行动项、负责人、截止时间和风险提醒。输出使用 Markdown 表格和分节标题。",
+    "improvementNotes": "优化版明确了角色、任务、字段和输出格式，因此结果更稳定。",
+    "language": "zh-CN",
+    "isFeatured": true
+  }
+]

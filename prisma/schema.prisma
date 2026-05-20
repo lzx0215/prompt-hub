@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum PromptStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum GenerationType {
+  TEXT_GENERATE
+  TEXT_OPTIMIZE
+  TEMPLATE_REWRITE
+  IMAGE_TO_PROMPT
+  DESIGN_ANALYSIS
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  description String   @db.Text
+  sortOrder   Int      @default(0)
+  prompts     Prompt[]
+}
+
+model Tag {
+  id      String      @id @default(cuid())
+  slug    String      @unique
+  name    String
+  prompts PromptTag[]
+}
+
+model Prompt {
+  id                    String       @id @default(cuid())
+  slug                  String       @unique
+  title                 String
+  summary               String       @db.Text
+  content               String       @db.Text
+  exampleInput          String       @db.Text
+  exampleOutput         String       @db.Text
+  structureRole         String       @db.Text
+  structureTask         String       @db.Text
+  structureContext      String       @db.Text
+  structureConstraints  String       @db.Text
+  structureOutputFormat String       @db.Text
+  weakPrompt            String       @db.Text
+  improvedPrompt        String       @db.Text
+  improvementNotes      String       @db.Text
+  language              String
+  status                PromptStatus @default(DRAFT)
+  isFeatured            Boolean      @default(false)
+  copyCount             Int          @default(0)
+  viewCount             Int          @default(0)
+  categoryId            String
+  createdAt             DateTime     @default(now())
+  updatedAt             DateTime     @updatedAt
+  category              Category     @relation(fields: [categoryId], references: [id])
+  tags                  PromptTag[]
+
+  @@index([categoryId])
+  @@index([status, isFeatured])
+}
+
+model PromptTag {
+  promptId String
+  tagId    String
+  prompt   Prompt @relation(fields: [promptId], references: [id], onDelete: Cascade)
+  tag      Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([promptId, tagId])
+  @@index([tagId])
+}
+
+model GenerationRecord {
+  id                String         @id @default(cuid())
+  type              GenerationType
+  inputSummary      String         @db.Text
+  outputPrompt      String         @db.Text
+  outputJson        Json?
+  outputExplanation String         @db.Text
+  language          String
+  providerName      String
+  modelName         String
+  ipHash            String
+  createdAt         DateTime       @default(now())
+
+  @@index([type, createdAt])
+  @@index([ipHash, createdAt])
+}
