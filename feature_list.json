@@ -1,0 +1,31 @@
+{
+  "project": "Prompt Hub",
+  "stage": "foundation-in-progress",
+  "last_updated": "2026-05-20",
+  "tasks": [
+    {
+      "id": "M0-001",
+      "name": "基础工程骨架",
+      "status": "in_progress",
+      "files": [
+        "AGENTS.md",
+        "progress.md",
+        "feature_list.json",
+        "app/**",
+        "components/**",
+        "lib/**",
+        "prisma/**",
+        "tests/**"
+      ],
+      "completed_steps": [
+        "Task 1: Next.js app shell"
+      ],
+      "next_steps": [
+        "Task 3: Prisma schema and seed loader",
+        "Task 4: AI provider foundation",
+        "Task 5: Auth and rate-limit utilities",
+        "Task 6: Vitest config and verify"
+      ]
+    }
+  ]
+}
