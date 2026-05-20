@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { loadSeedPrompts } from "../../lib/seed/load-seed-prompts";
+import { loadSeedPrompts } from "@/lib/seed/load-seed-prompts";
 
 describe("loadSeedPrompts", () => {
   it("loads reviewed seed prompts with category and tags", async () => {

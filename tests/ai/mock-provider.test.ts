@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createMockAIProvider } from "../../lib/ai/mock-provider";
+import { createMockAIProvider } from "@/lib/ai/mock-provider";
 
 describe("createMockAIProvider", () => {
   it("generates deterministic text prompt output", async () => {

@@ -1,12 +1,12 @@
 {
   "project": "Prompt Hub",
-  "stage": "foundation-planning",
+  "stage": "foundation-completed",
   "last_updated": "2026-05-20",
   "tasks": [
     {
       "id": "M0-001",
       "name": "基础工程骨架",
-      "status": "planned",
+      "status": "completed",
       "files": [
         "AGENTS.md",
         "progress.md",
@@ -16,7 +16,8 @@
         "lib/**",
         "prisma/**",
         "tests/**"
-      ]
+      ],
+      "verification": "npm run verify"
     }
   ]
 }

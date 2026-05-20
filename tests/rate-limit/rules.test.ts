@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildRateLimitKey, isWithinLimit } from "../../lib/rate-limit/rules";
+import { buildRateLimitKey, isWithinLimit } from "@/lib/rate-limit/rules";
 
 describe("rate limit rules", () => {
   it("builds a stable key without storing the raw IP", () => {
