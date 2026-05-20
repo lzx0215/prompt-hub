@@ -1,0 +1,22 @@
+{
+  "project": "Prompt Hub",
+  "stage": "foundation-planning",
+  "last_updated": "2026-05-20",
+  "tasks": [
+    {
+      "id": "M0-001",
+      "name": "基础工程骨架",
+      "status": "planned",
+      "files": [
+        "AGENTS.md",
+        "progress.md",
+        "feature_list.json",
+        "app/**",
+        "components/**",
+        "lib/**",
+        "prisma/**",
+        "tests/**"
+      ]
+    }
+  ]
+}
