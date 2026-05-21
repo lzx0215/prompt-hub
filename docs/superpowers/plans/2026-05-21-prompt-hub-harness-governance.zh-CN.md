@@ -151,7 +151,7 @@ docs/
       ],
       "verification": [
         "git diff --check",
-        "Get-Content -Raw feature_list.json | ConvertFrom-Json | Out-Null",
+        "Get-Content -Raw -Encoding UTF8 'feature_list.json' | ConvertFrom-Json | Out-Null",
         "npm run verify"
       ],
       "blocked_by": [],
@@ -166,7 +166,7 @@ docs/
 运行：
 
 ```powershell
-Get-Content -Raw 'feature_list.json' | ConvertFrom-Json | Out-Null
+Get-Content -Raw -Encoding UTF8 'feature_list.json' | ConvertFrom-Json | Out-Null
 ```
 
 预期：命令退出码为 `0`，没有 JSON 解析错误。
@@ -475,7 +475,7 @@ npm run verify
 PowerShell JSON 解析检查：
 
 ```powershell
-Get-Content -Raw 'feature_list.json' | ConvertFrom-Json | Out-Null
+Get-Content -Raw -Encoding UTF8 'feature_list.json' | ConvertFrom-Json | Out-Null
 ```
 
 文档 diff 检查：
@@ -589,7 +589,7 @@ npm run verify
       ],
       "verification": [
         "git diff --check HEAD~3..HEAD",
-        "Get-Content -Raw feature_list.json | ConvertFrom-Json | Out-Null",
+        "Get-Content -Raw -Encoding UTF8 'feature_list.json' | ConvertFrom-Json | Out-Null",
         "npm run verify"
       ],
       "blocked_by": [],
@@ -604,7 +604,7 @@ npm run verify
 运行：
 
 ```powershell
-Get-Content -Raw 'feature_list.json' | ConvertFrom-Json | Out-Null
+Get-Content -Raw -Encoding UTF8 'feature_list.json' | ConvertFrom-Json | Out-Null
 ```
 
 预期：命令退出码为 `0`，没有 JSON 解析错误。
