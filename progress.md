@@ -4,11 +4,11 @@
 
 ## 当前阶段
 
-`public-home-prompt-library-launch-planned`
+`public-home-prompt-library-launch-in-progress`
 
 ## 当前目标
 
-`M1-001` 已完成规格、feature 文档和实施计划准备。下一步按计划进入公开首页与精选提示词库首发体验实现。
+按 `M1-001` 计划交付公开首页与精选提示词库首发体验，先固定 20 条内容契约、公开查询和统计边界，再进入页面实现。
 
 ## 已完成事项
 
