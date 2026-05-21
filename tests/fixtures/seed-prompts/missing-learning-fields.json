@@ -1,0 +1,10 @@
+[
+  {
+    "slug": "missing-learning-fields",
+    "title": "缺字段示例",
+    "summary": "只用于验证 seed 契约。",
+    "category": "office",
+    "tags": ["work"],
+    "content": "请整理会议。"
+  }
+]

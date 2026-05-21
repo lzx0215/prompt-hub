@@ -20,6 +20,7 @@ const seedPromptSchema = z.object({
   improvementNotes: z.string().min(1),
   language: z.string().min(1),
   isFeatured: z.boolean(),
+  status: z.enum(["PUBLISHED", "DRAFT", "ARCHIVED"]).default("PUBLISHED"),
 });
 
 export type SeedPrompt = z.infer<typeof seedPromptSchema>;
