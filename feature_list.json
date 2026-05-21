@@ -1,6 +1,6 @@
 {
   "project": "Prompt Hub",
-  "stage": "harness-governance-completed",
+  "stage": "public-home-prompt-library-launch-planned",
   "last_updated": "2026-05-21",
   "tasks": [
     {
@@ -47,6 +47,36 @@
       ],
       "blocked_by": [],
       "notes": "中强度 harness 已写入执行规则、状态文件和质量门槛。"
+    },
+    {
+      "id": "M1-001",
+      "name": "公开首页与精选提示词库首发体验",
+      "status": "planned",
+      "feature_doc": "docs/features/M1-001-public-home-prompt-library-launch.md",
+      "spec": "docs/superpowers/specs/2026-05-21-prompt-hub-public-home-prompt-library-launch-design.zh-CN.md",
+      "plan": "docs/superpowers/plans/2026-05-21-prompt-hub-public-home-prompt-library-launch.zh-CN.md",
+      "files": [
+        "app/page.tsx",
+        "app/prompts/**",
+        "app/actions/prompt-metrics.ts",
+        "components/home/**",
+        "components/prompt/**",
+        "content/seed-prompts/**",
+        "lib/prompts/**",
+        "lib/metrics/**",
+        "lib/seed/load-seed-prompts.ts",
+        "prisma/seed.ts",
+        "tests/prompts/**",
+        "tests/metrics/**",
+        "tests/seed/**"
+      ],
+      "verification": [
+        "task-level tests and typecheck",
+        "browser QA for public UI",
+        "npm run verify"
+      ],
+      "blocked_by": [],
+      "notes": "首个公开业务切片，交付首页、20 条精选提示词库、搜索筛选、学习详情、复制和最小统计。"
     }
   ]
 }
