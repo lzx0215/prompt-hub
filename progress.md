@@ -1,27 +1,29 @@
 # Prompt Hub 进度记录
 
-最后更新：2026-05-20
+最后更新：2026-05-21
 
 ## 当前阶段
 
-`foundation-completed`
+`harness-governance-in-progress`
 
 ## 当前目标
 
-Prompt Hub 基础工程骨架已完成。下一步可以进入公开页面与提示词库实现计划。
+将已确认的中强度 harness 规则落入仓库，再按新规则进入后续 feature 规划和开发。
 
 ## 已完成事项
 
-- 已确认中文设计规格：`docs/superpowers/specs/2026-05-20-prompt-hub-design.zh-CN.md`。
-- 已完成 Next.js 应用骨架。
-- 已完成 harness 文档。
-- 已完成 Prisma MySQL schema。
-- 已完成 seed 数据加载结构。
-- 已完成 mock AI provider。
-- 已完成密码工具和限流规则工具。
-- 已完成 Vitest 单元测试。
-- `npm run verify` 已通过。
+- 已完成 `M0-001` 基础工程骨架。
+- 已确认 Prompt Hub 中文产品设计规格。
+- 已确认 Harness 治理规格：`docs/superpowers/specs/2026-05-21-prompt-hub-harness-governance-design.zh-CN.md`。
+
+## 当前阻塞
+
+- 无。
+
+## 最近验证
+
+- 2026-05-21：Foundation worktree 已运行 `npm run verify`。
 
 ## 下一步
 
-创建公开页面与提示词库实施计划。
+按 `docs/superpowers/plans/2026-05-21-prompt-hub-harness-governance.zh-CN.md` 收紧 Agent 工作规则和质量门槛。

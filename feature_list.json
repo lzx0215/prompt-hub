@@ -1,12 +1,15 @@
 {
   "project": "Prompt Hub",
-  "stage": "foundation-completed",
-  "last_updated": "2026-05-20",
+  "stage": "harness-governance-in-progress",
+  "last_updated": "2026-05-21",
   "tasks": [
     {
       "id": "M0-001",
       "name": "基础工程骨架",
       "status": "completed",
+      "feature_doc": "docs/features/M0-001-foundation.md",
+      "spec": "docs/superpowers/specs/2026-05-20-prompt-hub-design.zh-CN.md",
+      "plan": "docs/superpowers/plans/2026-05-20-prompt-hub-foundation.zh-CN.md",
       "files": [
         "AGENTS.md",
         "progress.md",
@@ -17,7 +20,33 @@
         "prisma/**",
         "tests/**"
       ],
-      "verification": "npm run verify"
+      "verification": [
+        "npm run verify"
+      ],
+      "blocked_by": [],
+      "notes": "Foundation 为后续 harness、公开页面、AI 工具和后台功能提供基础工程骨架。"
+    },
+    {
+      "id": "M0-002",
+      "name": "Harness 治理",
+      "status": "in_progress",
+      "feature_doc": "docs/features/M0-002-harness-governance.md",
+      "spec": "docs/superpowers/specs/2026-05-21-prompt-hub-harness-governance-design.zh-CN.md",
+      "plan": "docs/superpowers/plans/2026-05-21-prompt-hub-harness-governance.zh-CN.md",
+      "files": [
+        "AGENTS.md",
+        "progress.md",
+        "feature_list.json",
+        "docs/features/M0-002-harness-governance.md",
+        "docs/testing/README.md"
+      ],
+      "verification": [
+        "git diff --check",
+        "Get-Content -Raw -Encoding UTF8 'feature_list.json' | ConvertFrom-Json | Out-Null",
+        "npm run verify"
+      ],
+      "blocked_by": [],
+      "notes": "只收紧 harness，不进入产品功能实现。"
     }
   ]
 }
