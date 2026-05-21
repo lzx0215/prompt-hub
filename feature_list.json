@@ -1,6 +1,6 @@
 {
   "project": "Prompt Hub",
-  "stage": "harness-governance-in-progress",
+  "stage": "harness-governance-completed",
   "last_updated": "2026-05-21",
   "tasks": [
     {
@@ -29,7 +29,7 @@
     {
       "id": "M0-002",
       "name": "Harness 治理",
-      "status": "in_progress",
+      "status": "completed",
       "feature_doc": "docs/features/M0-002-harness-governance.md",
       "spec": "docs/superpowers/specs/2026-05-21-prompt-hub-harness-governance-design.zh-CN.md",
       "plan": "docs/superpowers/plans/2026-05-21-prompt-hub-harness-governance.zh-CN.md",
@@ -41,12 +41,12 @@
         "docs/testing/README.md"
       ],
       "verification": [
-        "git diff --check",
+        "git diff --check HEAD~3..HEAD",
         "Get-Content -Raw -Encoding UTF8 'feature_list.json' | ConvertFrom-Json | Out-Null",
         "npm run verify"
       ],
       "blocked_by": [],
-      "notes": "只收紧 harness，不进入产品功能实现。"
+      "notes": "中强度 harness 已写入执行规则、状态文件和质量门槛。"
     }
   ]
 }
