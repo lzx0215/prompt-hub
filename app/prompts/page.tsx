@@ -4,6 +4,8 @@ import type { PublicPromptListFilters } from "@/lib/prompts/public-types";
 import { PromptCard } from "@/components/prompt/PromptCard";
 import { PromptFilters } from "@/components/prompt/PromptFilters";
 
+export const dynamic = "force-dynamic";
+
 type PromptItem = Awaited<ReturnType<typeof getPublicPromptList>>[number];
 
 interface PromptsPageProps {

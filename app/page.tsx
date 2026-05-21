@@ -3,6 +3,8 @@ import { ToolEntryGrid } from "@/components/home/ToolEntryGrid";
 import { FeaturedCategories } from "@/components/home/FeaturedCategories";
 import { FeaturedPrompts } from "@/components/home/FeaturedPrompts";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const [{ categories }, featuredPrompts] = await Promise.all([
     getPublicPromptFilterOptions(),

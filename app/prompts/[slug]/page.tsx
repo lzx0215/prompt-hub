@@ -7,6 +7,8 @@ import { PromptStructure } from "@/components/prompt/PromptStructure";
 import { PromptComparison } from "@/components/prompt/PromptComparison";
 import { PromptCard } from "@/components/prompt/PromptCard";
 
+export const dynamic = "force-dynamic";
+
 type PromptDetail = NonNullable<Awaited<ReturnType<typeof getPublicPromptBySlug>>>;
 
 interface PromptDetailPageProps {
