@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getPublicPromptFilterOptions, getPublicPromptList } from "@/lib/prompts/public-query";
 import type { PublicPromptListFilters } from "@/lib/prompts/public-types";
 import { PromptCard } from "@/components/prompt/PromptCard";
@@ -36,9 +37,9 @@ export default async function PromptsPage({ searchParams }: PromptsPageProps) {
           {prompts.length === 0 && hasFilters && (
             <div className="rounded-lg border border-slate-200 bg-white p-8 text-center">
               <p className="text-slate-600">没有找到匹配的提示词。</p>
-              <a className="mt-2 inline-block text-sm text-blue-600 hover:underline" href="/prompts">
+              <Link className="mt-2 inline-block text-sm text-blue-600 hover:underline" href="/prompts">
                 清除所有筛选
-              </a>
+              </Link>
             </div>
           )}
 
