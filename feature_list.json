@@ -1,6 +1,6 @@
 {
   "project": "Prompt Hub",
-  "stage": "public-home-prompt-library-launch-in-progress",
+  "stage": "public-home-prompt-library-launch-review",
   "last_updated": "2026-05-21",
   "tasks": [
     {
@@ -51,7 +51,7 @@
     {
       "id": "M1-001",
       "name": "公开首页与精选提示词库首发体验",
-      "status": "in_progress",
+      "status": "review",
       "feature_doc": "docs/features/M1-001-public-home-prompt-library-launch.md",
       "spec": "docs/superpowers/specs/2026-05-21-prompt-hub-public-home-prompt-library-launch-design.zh-CN.md",
       "plan": "docs/superpowers/plans/2026-05-21-prompt-hub-public-home-prompt-library-launch.zh-CN.md",
@@ -71,8 +71,10 @@
         "tests/seed/**"
       ],
       "verification": [
-        "task-level tests and typecheck",
-        "browser QA for public UI",
+        "npx vitest run tests/seed/load-seed-prompts.test.ts",
+        "npx vitest run tests/prompts/public-query.test.ts",
+        "npx vitest run tests/metrics/prompt-metrics.test.ts",
+        "npx vitest run tests/prompts/prompt-pages.test.tsx",
         "npm run verify"
       ],
       "blocked_by": [],
