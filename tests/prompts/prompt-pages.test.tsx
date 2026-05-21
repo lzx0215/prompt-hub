@@ -2,10 +2,14 @@ import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import PromptsPage from "@/app/prompts/page";
 import PromptDetailPage from "@/app/prompts/[slug]/page";
+import HomePage from "@/app/page";
 
 vi.mock("@/lib/prompts/public-query", () => ({
   getPublicPromptFilterOptions: vi.fn().mockResolvedValue({
-    categories: [{ slug: "office", name: "办公效率" }],
+    categories: [
+      { slug: "office", name: "办公效率" },
+      { slug: "coding-agent", name: "编程和 Agent 工作流" },
+    ],
     tags: [{ slug: "summary", name: "summary" }],
   }),
   getPublicPromptList: vi.fn().mockResolvedValue([]),
@@ -31,6 +35,15 @@ vi.mock("@/lib/prompts/public-query", () => ({
     category: { slug: "office", name: "办公效率" },
   }),
   getRelatedPublicPrompts: vi.fn().mockResolvedValue([]),
+  getFeaturedPublicPrompts: vi.fn().mockResolvedValue([
+    {
+      id: "test-id",
+      slug: "meeting-summary",
+      title: "会议纪要整理助手",
+      summary: "把零散会议记录整理为清晰的结论、行动项和风险提醒。",
+      category: { slug: "office", name: "办公效率" },
+    },
+  ]),
 }));
 
 vi.mock("@/lib/metrics/prompt-metrics", () => ({
@@ -55,5 +68,15 @@ describe("prompt public pages", () => {
     expect(html).toContain("示例输入");
     expect(html).toContain("结构拆解");
     expect(html).toContain("优化对比");
+  });
+
+  it("renders prompt-library launch entries on the homepage", async () => {
+    const page = await HomePage();
+    const html = renderToStaticMarkup(page);
+
+    expect(html).toContain("找提示词");
+    expect(html).toContain("精选分类");
+    expect(html).toContain("精选提示词");
+    expect(html).toContain("/prompts");
   });
 });
