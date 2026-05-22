@@ -31,6 +31,14 @@ npm run verify
 | Prisma schema 与 seed | 运行 `npm run prisma:validate`、`npm run prisma:generate` 和相关测试 |
 | AI provider、auth、rate limit | 运行相关测试、`npm run typecheck`，再按风险补 API 或流程验证 |
 
+## 前端设计预览确认
+
+前端设计阶段的 Chrome 预览确认发生在正式前端 feature 规格和实施计划之前，流程见 `docs/design/frontend-design-workflow.md`。
+
+- 设计预览确认只说明用户接受当前设计方向。
+- 设计预览确认不能替代实现后的 lint、typecheck、相关测试和浏览器检查。
+- 前端代码实现进入验证阶段后，仍按本文件的任务级、feature 级和阶段级门槛执行。
+
 ## Feature 级门槛
 
 feature 进入 `review` 或 `completed` 前必须确认：
@@ -82,7 +90,7 @@ git diff --check
 
 ## 前端浏览器检查
 
-重要 UI 改动进入完成状态前，至少记录：
+这是前端实现完成前的浏览器验证。重要 UI 改动进入完成状态前，至少记录：
 
 - 检查的路由。
 - 桌面端检查范围。
