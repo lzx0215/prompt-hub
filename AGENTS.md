@@ -43,13 +43,14 @@
 后续功能开发按以下阶段门推进：
 
 1. Scope Gate：确认需求属于 v0.1；超范围先获得用户确认并同步文档。
-2. Spec Gate：新功能、关键行为变化和关键交互变化先有设计规格。
-3. Feature Gate：可开发 feature 必须有 feature id、范围、不做范围、验收和验证方式。
-4. Plan Gate：多步开发先有实施计划，再开始编码。
-5. Execution Gate：执行中不顺手实现计划外功能；发现计划缺口先修正文档。
-6. Verification Gate：有新鲜验证证据后才能声称任务、feature 或阶段完成。
-7. Review Gate：重要任务先做规格符合性检查，再做代码质量检查。
-8. Progress Gate：feature 状态变化时同步 `feature_list.json` 和 `progress.md`。
+2. Frontend Design Gate：前端 UI 任务先按 `docs/design/frontend-design-workflow.md` 完成参考确认、指定 skill 设计和 Chrome 预览确认，再进入正式规格与计划。
+3. Spec Gate：新功能、关键行为变化和关键交互变化先有设计规格。
+4. Feature Gate：可开发 feature 必须有 feature id、范围、不做范围、验收和验证方式。
+5. Plan Gate：多步开发先有实施计划，再开始编码。
+6. Execution Gate：执行中不顺手实现计划外功能；发现计划缺口先修正文档。
+7. Verification Gate：有新鲜验证证据后才能声称任务、feature 或阶段完成。
+8. Review Gate：重要任务先做规格符合性检查，再做代码质量检查。
+9. Progress Gate：feature 状态变化时同步 `feature_list.json` 和 `progress.md`。
 
 ## Scope Rules
 
@@ -84,6 +85,16 @@
 - 前端实现优先复用项目既有组件、样式约束和信息架构。
 - UI 必须同时考虑桌面端和移动端的可读性、可扫描性、操作反馈和错误状态。
 - 页面布局、组件分区和具体交互在对应 feature 规格与计划中确定，不能没有页面规格就凭感觉堆界面。
+
+## Frontend Design Gate
+
+- 前端设计工作流见 `docs/design/frontend-design-workflow.md`。
+- 整页 UI、新页面或重大视觉改版开始前，先询问用户是否有参考网站、参考页面或参考图片。
+- 有参考素材时使用 `ai-website-cloner-template`；无参考素材时使用 `awesome-design-md`。
+- 局部 UI 修改先确认修改目标与范围，再使用 `awesome-design-md`。
+- 指定 skill 不可用时暂停在设计门前，不使用替代流程绕过。
+- 设计预览必须通过 Chrome 插件展示给用户检查。
+- 用户确认设计预览前，不写正式前端 feature 规格、实施计划或实现代码。
 
 ## Verification And Review Rules
 
