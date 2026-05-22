@@ -15,7 +15,7 @@
 - 明确 workflow/skill 如何服从仓库规格、计划和验收要求。
 - 明确最小可验证切片原则。
 - 写入前端 UI 的项目级护栏，并保留页面级设计到对应 feature 规格。
-- 将前端设计前置门写入 harness：整页设计先确认参考素材，按是否存在参考分流到指定 skill，局部 UI 修改走局部设计流程。
+- 将前端设计前置门写入 harness：整页设计先确认参考素材，有参考素材走 `ai-website-cloner-template`，无参考素材和局部 UI 修改走 `awesome-design-md`。
 - 明确 Chrome 设计预览获用户确认前，不写正式前端 feature 规格、实施计划或实现代码。
 - 让 `feature_list.json` 能记录 feature 文档、spec、plan、验证、阻塞和 notes。
 - 让 `progress.md` 固定当前阶段、目标、完成项、阻塞、最近验证和下一步。
@@ -36,7 +36,7 @@
 - `progress.md` 不再只是 Foundation 结束摘要，而能表达当前 harness 阶段和下一步。
 - `docs/testing/README.md` 能说明任务级、feature 级和阶段级最低验证要求。
 - 仓库能说明 workflow/skill 适配、最小代码生成和前端 UI 规则写入时机。
-- 仓库能说明整页 UI、有参考素材、无参考素材和局部 UI 修改各自应走的设计流程。
+- 仓库能说明整页 UI、有参考素材、无参考素材和局部 UI 修改各自应走的设计流程，并指向 `ai-website-cloner-template` 或 `awesome-design-md`。
 - 仓库能在指定 skill 缺失时把 Agent 停在设计门前，并要求先补齐对应 skill。
 - Chrome 设计预览未获用户确认前，前端任务不会进入正式规格、计划或代码实现。
 
