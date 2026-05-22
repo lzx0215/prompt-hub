@@ -1,7 +1,7 @@
 {
   "project": "Prompt Hub",
-  "stage": "public-home-prompt-library-launch-completed",
-  "last_updated": "2026-05-21",
+  "stage": "admin-crud-and-ai-integration-completed",
+  "last_updated": "2026-05-22",
   "tasks": [
     {
       "id": "M0-001",
@@ -79,6 +79,53 @@
       ],
       "blocked_by": [],
       "notes": "首个公开业务切片，交付首页、20 条精选提示词库、搜索筛选、学习详情、复制和最小统计。"
+    },
+    {
+      "id": "M2-001",
+      "name": "AI 真实接入与 IP 限流",
+      "status": "completed",
+      "feature_doc": "docs/features/M2-001-ai-integration-rate-limiting.md",
+      "spec": "docs/superpowers/specs/2026-05-22-prompt-hub-ai-integration-rate-limiting-design.zh-CN.md",
+      "plan": "docs/superpowers/plans/2026-05-22-prompt-hub-ai-integration-rate-limiting.zh-CN.md",
+      "files": [
+        "lib/ai/**",
+        "app/api/generate/**",
+        "app/api/analyze-image/**",
+        "components/image-to-prompt/ImageUploader.tsx",
+        "app/generator/page.tsx",
+        "lib/rate-limit/**"
+      ],
+      "verification": [
+        "npx vitest run tests/ai/",
+        "npx vitest run tests/rate-limit/",
+        "npm run verify"
+      ],
+      "blocked_by": [
+        "M1-001"
+      ],
+      "notes": "真实 AI 接入与 IP Hashed 限流拦截保护机制。"
+    },
+    {
+      "id": "M2-002",
+      "name": "管理员安全登录与内容 CRUD",
+      "status": "completed",
+      "feature_doc": "docs/features/M2-002-admin-auth-content-management.md",
+      "spec": "docs/superpowers/specs/2026-05-22-prompt-hub-admin-auth-content-management-design.zh-CN.md",
+      "plan": "docs/superpowers/plans/2026-05-22-prompt-hub-admin-auth-content-management.zh-CN.md",
+      "files": [
+        "prisma/seed.ts",
+        "app/api/admin/auth/**",
+        "middleware.ts",
+        "app/admin/**"
+      ],
+      "verification": [
+        "npx vitest run tests/auth/",
+        "npm run verify"
+      ],
+      "blocked_by": [
+        "M2-001"
+      ],
+      "notes": "单管理员安全登录会话管理与双栏式提示词 CRUD 面板。"
     }
   ]
 }
