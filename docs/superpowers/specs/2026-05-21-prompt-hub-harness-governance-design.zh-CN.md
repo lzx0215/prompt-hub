@@ -303,16 +303,30 @@ Prompt Hub 的 UI 约束分为项目级护栏和 feature 级设计。
 - UI 必须同时考虑桌面端和移动端的可读性、可扫描性、操作反馈和错误状态。
 - 重要 UI 改动在进入完成状态前必须做浏览器检查，并记录检查范围。
 
-### Feature 开发前写入的页面级设计
+### Frontend Design Gate
 
-以下内容不在 harness 阶段提前写死，而在对应 feature 规格和计划中确定：
+前端 UI 任务在进入正式 feature 规格和实施计划前，必须先通过前端设计门：
+
+- 整页 UI、新页面或重大视觉改版开始前，先询问用户是否有参考网站、参考页面或参考图片。
+- 若用户提供参考 URL、页面或图片，必须使用 `ai-website-cloner-template` skill 进入设计阶段。
+- 若用户没有参考页面或参考素材，必须使用 `awesome-design-md` skill 进入设计阶段。
+- 局部 UI 修改必须先确认修改目标与范围，再使用 `awesome-design-md` skill 进入设计阶段。
+- 若当前分支所需 skill 不可用，暂停设计流程，先补齐对应 skill，不得用替代流程绕过。
+- 设计预览必须通过 Chrome 插件展示给用户检查。
+- 用户未确认设计预览前，不得写正式前端 feature 规格，不得写实施计划，不得进入前端代码实现。
+
+`ai-website-cloner-template` 和 `awesome-design-md` 是本项目规定的前端设计前置 skill。若当前 Agent 平台不能使用指定 skill，应明确报告缺失并停止在设计门前。
+
+### 用户确认后写入的页面级设计
+
+以下内容不在 harness 阶段提前写死，而是在用户确认设计预览后，再固化到对应 feature 规格和计划中：
 
 - 页面布局、组件分区和信息优先级。
 - 上传区、筛选区、结果区、管理表单等具体交互。
 - 页面级响应式策略和状态设计。
 - 某个页面需要的浏览器 QA 场景。
 
-这样可以保留 UI 设计的学习空间，同时防止 Agent 在没有页面规格时凭感觉堆界面。
+这样可以保留 UI 设计的学习空间，同时防止 Agent 在没有参考确认、skill 设计和用户预览确认时凭感觉堆界面。
 
 ## 12. 质量门槛
 
@@ -376,6 +390,7 @@ feature 进入 `review` 或 `completed` 前必须确认：
 - 更新 `progress.md`。
 - 更新 `feature_list.json`。
 - 更新 `docs/testing/README.md`。
+- 新增 `docs/design/frontend-design-workflow.md`，说明整页设计、无参考设计、局部修改、Chrome 展示和 skill 缺失暂停流程。
 - 新增 `docs/features/M0-002-harness-governance.md`。
 - 将 workflow/skill 适配、最小代码生成和前端 UI 项目级护栏写入执行规则。
 - 必要时在 `docs/product/mvp_spec.md` 说明 harness 治理不改变产品范围。
@@ -390,5 +405,9 @@ feature 进入 `review` 或 `completed` 前必须确认：
 - `docs/testing/README.md` 不再只覆盖 Foundation，而能支撑后续 feature 开发。
 - 仓库能说明 skill/workflow 如何服从 Prompt Hub 的规格、计划和验收要求。
 - 仓库能约束 Agent 先交付最小可验证切片，再扩大代码范围。
-- 仓库能区分前端 UI 的项目级护栏和 feature 级页面设计。
+- 仓库能区分前端 UI 的项目级护栏、Frontend Design Gate 和用户确认后的 feature 级页面设计。
+- 前端整页设计能按是否存在参考素材分流到 `ai-website-cloner-template` 或 `awesome-design-md`。
+- 前端局部修改能强制走 `awesome-design-md`。
+- 当前流程所需 skill 不可用时，Agent 会在设计门前暂停。
+- Chrome 预览未获用户确认前，Agent 不会写前端 feature 规格、实施计划或实现代码。
 - 本次改动不引入新的产品功能范围。
